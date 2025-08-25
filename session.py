@@ -12,20 +12,19 @@ if "satir_sayisi" not in st.session_state:
 
 dataframe = pd.read_csv("data.csv", sep=",")
 
-artir_btn = st.button(label="Artir")
-dusur_btn = st.button(label="Düşü")
+st.table(dataframe.head(st.session_state.satir_sayisi))
 
-if artir_btn:
+def artir():   #callback fonksiyonu
     st.session_state.satir_sayisi += 1
 
-if dusur_btn:
+def dusur():
     st.session_state.satir_sayisi -= 1
 
-#st.divider()
-#st.header(st.session_state.satir_sayisi)
+artir_btn = st.button(label="Artir")
+dusur_btn = st.button(label="Düşür")
 
-
-st.table(dataframe.head(st.session_state.satir_sayisi))
+st.divider()
+st.header(st.session_state.satir_sayisi)
 
 
 
